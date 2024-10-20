@@ -1,0 +1,126 @@
+﻿/* Set padding to keep content from hitting the edges */
+/*.body-content {
+    margin-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+}*/
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+/*.dl-horizontal dt {
+    white-space: normal;
+}*/
+
+/* Set width on the form input elements since they're 100% wide by default */
+/*input,
+select,
+textarea {
+    max-width: 280px;
+}*/
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0a0e17;
+    color: #ffffff;
+}
+
+.bg-sidebar {
+    background-color: #0f1623;
+}
+
+.bg-header {
+    background-color: #0a0e17;
+    border-bottom: 1px solid #1a2133;
+}
+
+.bg-footer {
+    background-color: #0f1623;
+    border-top: 1px solid #1a2133;
+}
+
+.bg-search {
+    background-color: #1a2133;
+}
+
+.bg-user {
+    background-color: #1a2133;
+}
+
+.text-cyan {
+    color: #22d3ee !important;
+}
+
+.border-cyan {
+    border-color: #22d3ee !important;
+}
+
+.btn-cyan {
+    background-color: #22d3ee;
+    border-color: #22d3ee;
+    color: #0a0e17;
+}
+
+.btn-outline-cyan {
+    color: #22d3ee;
+    border-color: #22d3ee;
+}
+
+    .btn-outline-cyan:hover {
+        background-color: #22d3ee;
+        color: #0a0e17;
+    }
+
+.song-cover {
+    aspect-ratio: 1 / 1;
+    background-size: cover;
+    background-position: center;
+    border-radius: 4px;
+}
+
+.artist-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+}
+
+.playlist-icon {
+    width: 32px;
+    height: 32px;
+    background-color: #1a2133;
+    border-radius: 4px;
+}
+
+.current-song-cover {
+    width: 48px;
+    height: 48px;
+    background-color: #1a2133;
+    border-radius: 4px;
+}
+
+.progress {
+    background-color: #1a2133;
+    height: 4px;
+}
+
+.progress-bar {
+    background-color: #22d3ee;
+}
+
+.nav-link {
+    color: #8b95a5;
+}
+
+    .nav-link:hover, .nav-link.active {
+        color: #ffffff;
+    }
+
+.form-control::placeholder {
+    color: #8b95a5;
+}
+
+.text-muted {
+    color: #8b95a5 !important;
+}

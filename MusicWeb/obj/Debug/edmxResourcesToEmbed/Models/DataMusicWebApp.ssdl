@@ -1,0 +1,349 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MusicWebAppModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="albums">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="artist_id" Type="int" Nullable="false" />
+    <Property Name="release_date" Type="date" />
+    <Property Name="cover_image_path" Type="varchar" MaxLength="500" />
+    <Property Name="description" Type="text" />
+    <Property Name="created_at" Type="datetime" />
+  </EntityType>
+  <EntityType Name="artists">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="bio" Type="text" />
+    <Property Name="avatar_path" Type="varchar" MaxLength="500" />
+    <Property Name="created_at" Type="datetime" />
+  </EntityType>
+  <EntityType Name="comments">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="song_id" Type="int" Nullable="false" />
+    <Property Name="content" Type="text" Nullable="false" />
+    <Property Name="created_at" Type="datetime" />
+  </EntityType>
+  <EntityType Name="favorites">
+    <Key>
+      <PropertyRef Name="user_id" />
+      <PropertyRef Name="song_id" />
+    </Key>
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="song_id" Type="int" Nullable="false" />
+    <Property Name="added_at" Type="datetime" />
+  </EntityType>
+  <EntityType Name="genres">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="description" Type="text" />
+  </EntityType>
+  <EntityType Name="playlist_songs">
+    <Key>
+      <PropertyRef Name="playlist_id" />
+      <PropertyRef Name="song_id" />
+    </Key>
+    <Property Name="playlist_id" Type="int" Nullable="false" />
+    <Property Name="song_id" Type="int" Nullable="false" />
+    <Property Name="added_at" Type="datetime" />
+  </EntityType>
+  <EntityType Name="playlists">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="description" Type="text" />
+    <Property Name="created_at" Type="datetime" />
+  </EntityType>
+  <EntityType Name="song_plays">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_id" Type="int" />
+    <Property Name="song_id" Type="int" Nullable="false" />
+    <Property Name="played_at" Type="datetime" />
+  </EntityType>
+  <EntityType Name="songs">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="artist_id" Type="int" Nullable="false" />
+    <Property Name="album_id" Type="int" />
+    <Property Name="genre_id" Type="int" />
+    <Property Name="duration" Type="int" Nullable="false" />
+    <Property Name="file_path" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="stream_count" Type="int" />
+    <Property Name="lyrics" Type="text" />
+    <Property Name="release_date" Type="date" />
+    <Property Name="created_at" Type="datetime" />
+    <Property Name="avatarPath" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fullname" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="username" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="avatar_path" Type="varchar" MaxLength="500" />
+    <Property Name="created_at" Type="datetime" />
+  </EntityType>
+  <Association Name="FK__albums__artist_i__403A8C7D">
+    <End Role="artists" Type="Self.artists" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="albums" Type="Self.albums" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="artists">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="albums">
+        <PropertyRef Name="artist_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__comments__song_i__619B8048">
+    <End Role="songs" Type="Self.songs" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="comments" Type="Self.comments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="songs">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="comments">
+        <PropertyRef Name="song_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__comments__user_i__60A75C0F">
+    <End Role="users" Type="Self.users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="comments" Type="Self.comments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="comments">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__favorites__song___66603565">
+    <End Role="songs" Type="Self.songs" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="favorites" Type="Self.favorites" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="songs">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="favorites">
+        <PropertyRef Name="song_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__favorites__user___656C112C">
+    <End Role="users" Type="Self.users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="favorites" Type="Self.favorites" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="favorites">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__playlist___playl__571DF1D5">
+    <End Role="playlists" Type="Self.playlists" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="playlist_songs" Type="Self.playlist_songs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="playlists">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="playlist_songs">
+        <PropertyRef Name="playlist_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__playlist___song___5812160E">
+    <End Role="songs" Type="Self.songs" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="playlist_songs" Type="Self.playlist_songs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="songs">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="playlist_songs">
+        <PropertyRef Name="song_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__playlists__user___534D60F1">
+    <End Role="users" Type="Self.users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="playlists" Type="Self.playlists" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="playlists">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__song_play__song___5CD6CB2B">
+    <End Role="songs" Type="Self.songs" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="song_plays" Type="Self.song_plays" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="songs">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="song_plays">
+        <PropertyRef Name="song_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__song_play__user___5BE2A6F2">
+    <End Role="users" Type="Self.users" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="song_plays" Type="Self.song_plays" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="song_plays">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__songs__album_id__4E88ABD4">
+    <End Role="albums" Type="Self.albums" Multiplicity="0..1" />
+    <End Role="songs" Type="Self.songs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="albums">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="songs">
+        <PropertyRef Name="album_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__songs__artist_id__4D94879B">
+    <End Role="artists" Type="Self.artists" Multiplicity="1" />
+    <End Role="songs" Type="Self.songs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="artists">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="songs">
+        <PropertyRef Name="artist_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__songs__genre_id__4F7CD00D">
+    <End Role="genres" Type="Self.genres" Multiplicity="0..1" />
+    <End Role="songs" Type="Self.songs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="genres">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="songs">
+        <PropertyRef Name="genre_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MusicWebAppModelStoreContainer">
+    <EntitySet Name="albums" EntityType="Self.albums" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="artists" EntityType="Self.artists" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="comments" EntityType="Self.comments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="favorites" EntityType="Self.favorites" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="genres" EntityType="Self.genres" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="playlist_songs" EntityType="Self.playlist_songs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="playlists" EntityType="Self.playlists" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="song_plays" EntityType="Self.song_plays" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="songs" EntityType="Self.songs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__albums__artist_i__403A8C7D" Association="Self.FK__albums__artist_i__403A8C7D">
+      <End Role="artists" EntitySet="artists" />
+      <End Role="albums" EntitySet="albums" />
+    </AssociationSet>
+    <AssociationSet Name="FK__comments__song_i__619B8048" Association="Self.FK__comments__song_i__619B8048">
+      <End Role="songs" EntitySet="songs" />
+      <End Role="comments" EntitySet="comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__comments__user_i__60A75C0F" Association="Self.FK__comments__user_i__60A75C0F">
+      <End Role="users" EntitySet="users" />
+      <End Role="comments" EntitySet="comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__favorites__song___66603565" Association="Self.FK__favorites__song___66603565">
+      <End Role="songs" EntitySet="songs" />
+      <End Role="favorites" EntitySet="favorites" />
+    </AssociationSet>
+    <AssociationSet Name="FK__favorites__user___656C112C" Association="Self.FK__favorites__user___656C112C">
+      <End Role="users" EntitySet="users" />
+      <End Role="favorites" EntitySet="favorites" />
+    </AssociationSet>
+    <AssociationSet Name="FK__playlist___playl__571DF1D5" Association="Self.FK__playlist___playl__571DF1D5">
+      <End Role="playlists" EntitySet="playlists" />
+      <End Role="playlist_songs" EntitySet="playlist_songs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__playlist___song___5812160E" Association="Self.FK__playlist___song___5812160E">
+      <End Role="songs" EntitySet="songs" />
+      <End Role="playlist_songs" EntitySet="playlist_songs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__playlists__user___534D60F1" Association="Self.FK__playlists__user___534D60F1">
+      <End Role="users" EntitySet="users" />
+      <End Role="playlists" EntitySet="playlists" />
+    </AssociationSet>
+    <AssociationSet Name="FK__song_play__song___5CD6CB2B" Association="Self.FK__song_play__song___5CD6CB2B">
+      <End Role="songs" EntitySet="songs" />
+      <End Role="song_plays" EntitySet="song_plays" />
+    </AssociationSet>
+    <AssociationSet Name="FK__song_play__user___5BE2A6F2" Association="Self.FK__song_play__user___5BE2A6F2">
+      <End Role="users" EntitySet="users" />
+      <End Role="song_plays" EntitySet="song_plays" />
+    </AssociationSet>
+    <AssociationSet Name="FK__songs__album_id__4E88ABD4" Association="Self.FK__songs__album_id__4E88ABD4">
+      <End Role="albums" EntitySet="albums" />
+      <End Role="songs" EntitySet="songs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__songs__artist_id__4D94879B" Association="Self.FK__songs__artist_id__4D94879B">
+      <End Role="artists" EntitySet="artists" />
+      <End Role="songs" EntitySet="songs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__songs__genre_id__4F7CD00D" Association="Self.FK__songs__genre_id__4F7CD00D">
+      <End Role="genres" EntitySet="genres" />
+      <End Role="songs" EntitySet="songs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

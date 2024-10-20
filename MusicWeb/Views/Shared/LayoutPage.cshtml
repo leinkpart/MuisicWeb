@@ -1,0 +1,492 @@
+﻿@model List<MusicWeb.Models.Song>
+
+@{
+    int i = 0;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - Music Streaming</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Link to Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- Link to Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.7.2/font/bootstrap-icons.min.css">
+
+    <script src="~/Scripts/playSong.js"></script>
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #222;
+        }
+
+        /* Tùy chỉnh thanh cuộn cho Chrome, Safari và Edge */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        /* Phần nền của thanh cuộn */
+        /*::-webkit-scrollbar-track {
+            background: transparent;*/ /* Nền trong suốt */
+        /*}*/
+
+        /* Phần thumb (phần có thể kéo) */
+        ::-webkit-scrollbar-thumb {
+            background-color: rgba(225, 225, 225, 0.2);
+            border-radius: 30px; /* Bo tròn góc */
+        }
+
+            /* Khi hover vào thanh cuộn */
+            ::-webkit-scrollbar-thumb:hover {
+                background-color: rgba(225, 225, 225, 0.4);
+            }
+
+        /* Firefox */
+        * {
+            scrollbar-width: thin; /* Độ dày thanh cuộn */
+            scrollbar-color: rgba(225, 225, 225, 0.2) transparent; /* Màu thumb và màu nền */
+        }
+
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: calc(100vh - 100px);
+            width: 290px;
+            background-color: #021526;
+            padding: 20px;
+            overflow-y: auto; /* Scrollable if content overflows */
+            border-radius: 15px;
+            margin: 10px;
+            padding-top: 15px;
+            padding-bottom: 10px;
+        }
+
+            .sidebar h4 {
+                color: white;
+            }
+
+        .content {
+            margin-left: 270px;
+            padding: 20px;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: #888;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+            .sidebar a i {
+                font-size: 8.5px;
+                margin-right: 20px;
+                color: #fff;
+            }
+
+            .sidebar a p {
+                margin: 0;
+                font-size: 14px;
+            }
+
+            .sidebar a:hover i {
+                color: cyan;
+            }
+
+            .sidebar a:hover p {
+                color: cyan;
+            }
+
+        .side-item.active i {
+            font-size: 11px; /* Kích thước lớn hơn khi được chọn */
+            color: cyan; /* Màu của icon khi được chọn */
+        }
+
+        .side-item.active p {
+            font-size: 16px;
+            color: cyan;
+        }
+
+        .menu_song {
+            margin-left: -15px;
+            margin-right: -15px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .song-number {
+            flex: 0 0 20px;
+            text-align: center; /* Canh giữa số thứ tự */
+            margin-right: 9px;
+            color: #666;
+        }
+
+        .song-image {
+            width: 50px;
+            height: 50px;
+            /*            margin-left: -6px; */
+            margin-right: 15px;
+            border-radius: 10px;
+        }
+
+        .song-details {
+            flex-grow: 1;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .song-title {
+            margin: 0;
+            font-size: 16px;
+            color: #ddd;
+        }
+
+        .subtitle {
+            margin: 0;
+            font-size: 14px;
+            color: #888;
+        }
+
+        .play-circle {
+            flex: 0 0 30px;
+            text-align: right;
+            z-index: 1;
+        }
+
+
+
+        .ItemSong {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+            padding: 5px;
+            border-bottom: 1px solid #444;
+            background-color: transparent;
+        }
+
+            .ItemSong:hover {
+                background-color: #19376D;
+            }
+
+            .ItemSong i {
+                font-size: 22px;
+                color: cyan;
+                cursor: pointer;
+            }
+
+                .ItemSong i:hover {
+                    color: #fff;
+                }
+
+
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 290px;
+            right: 0;
+            height: 60px;
+            background-color: #021526;
+            /*            border-bottom: 1px solid #ddd;*/
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            margin-left: 20px;
+            margin-top: 10px;
+            margin-right: 10px
+        }
+
+        /* Underline styles */
+        .nav-wrapper {
+            position: relative;
+        }
+
+        .navbar .underline {
+            position: absolute;
+            bottom: 0;
+            height: 2px;
+            background-color: cyan;
+            transition: all 0.3s ease-in-out;
+            width: 0;
+            border-radius: 10px;
+        }
+
+        /* Styling for active link */
+        .navbar .nav-link.active {
+            color: cyan; /* Màu của liên kết được chọn */
+        }
+
+        /* Default color for nav links */
+        .navbar .nav-link {
+            color: #fff;
+            transition: color 0.3s ease-in-out;
+        }
+
+        /* Centered search bar */
+        .navbar-search {
+            flex-grow: 1; /* Fill the space between navbar items */
+            text-align: center;
+            margin-left: 8%;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+            .navbar-search input {
+                width: 400px;
+                max-width: 100%;
+                padding: 5px 15px;
+                border: 1px solid #ddd;
+                border-radius: 20px;
+                outline: none;
+                padding-left: 38px;
+                background-color: rgba(51, 51, 51, 0.7); /* Nền ô tìm kiếm trong suốt */
+                color: #fff; /* Màu chữ trắng */
+            }
+
+            .navbar-search i {
+                position: absolute; /* Đặt vị trí tuyệt đối cho icon */
+                left: 0px; /* Đặt vị trí icon bên trái */
+                color: #888; /* Màu icon */
+                padding: 5px 10px 5px 14px;
+                cursor: pointer;
+            }
+
+        .navbar .navbar-items {
+            display: flex;
+            align-items: center;
+        }
+
+            .navbar .navbar-items a {
+                margin-right: 27px;
+                color: #666;
+                text-decoration: none;
+                font-size: 16px;
+                font-weight: 500;
+            }
+
+                .navbar .navbar-items a:hover {
+                    color: cyan;
+                }
+
+                .navbar .navbar-items a i {
+                    font-size: 20px;
+                }
+
+            .navbar .navbar-items .bi-person-circle {
+                font-size: 30px;
+            }
+
+        /* Chấm thông báo */
+        .notification {
+            position: relative;
+        }
+
+        .notification-dot {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 10px;
+            height: 10px;
+            background-color: red;
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+
+        /* Content */
+        .content {
+            margin-left: 290px;
+            margin-top: 52px; /* Adjust margin-top to avoid overlapping with navbar */
+            margin-bottom: 60px; /* Avoid overlap with footer */
+            padding: 20px;
+            overflow-y: auto;
+            height: calc(100vh - 120px);
+        }
+
+        /* Footer */
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background-color: #021526;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            border-radius: 15px;
+        }
+
+        /* Fix scrolling behavior */
+        body, html {
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h4>Music</h4>
+        <a href="#" class="side-item">
+            <i class="bi bi-music-note-beamed"></i>
+            <p>Playlist</p>
+        </a>
+
+        <a href="#" class="side-item">
+            <i class="bi bi-circle"></i>
+            <p>Last Listening</p>
+        </a>
+
+        <a href="#" class="side-item">
+            <i class="bi bi-circle"></i>
+            <p>Recommended</p>
+        </a>
+
+        <h4>Bài hát</h4>
+
+        <div class="menu_song">
+            @foreach (var s in ViewBag.BaiHat)
+            {
+                ++i;
+                <div class="ItemSong" data-index="@s.SongID">
+                    <span class="song-number">@i</span>
+                    <img src="~/Images/SongsIamge/@s.ImageURL" class="song-image">
+                    <div class="song-details">
+                        <h5 class="song-title">@s.SongTitle</h5>
+                        <span class="subtitle">@s.Artist.ArtistName</span>
+                    </div>
+                    <i class="bi play-circle bi-play-circle-fill"></i>
+                    <audio id="audio_@s.SongID" src="~/MusicMP3/@s.AudioFile"></audio>
+                </div>
+            }
+        </div>
+
+    </div>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="navbar-items nav-wrapper">
+            <a href="#" class="nav-link active">Home</a>
+            <a href="#" class="nav-link">Discover</a>
+            <a href="#" class="nav-link">My Library</a>
+            <a href="#" class="nav-link">Radio</a>
+            <div class="underline"></div> <!-- Đường underline -->
+        </div>
+
+        <!-- Search bar in the center -->
+        <div class="navbar-search">
+            <input type="text" placeholder="Search for music, podcasts, etc." class="form-control bg-search border-0">
+            <i class="bi bi-search"></i>
+        </div>
+
+        <!-- Thêm vào biểu tượng chuông -->
+        <div class="navbar-items">
+            <!-- Icon thông báo -->
+            <a href="#" class="notification">
+                <i class="bi bi-bell"></i>
+                <span class="notification-dot"></span>
+            </a>
+
+            <!-- Biểu tượng user và tên người dùng -->
+            <a href="#" class="user-icon">
+                <i class="bi bi-person-circle"></i>
+            </a>
+        </div>
+
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+        @RenderBody()
+    </div>
+
+
+    <!-- Footer -->
+    <div class="footer">
+        <div>
+            hello
+        </div>
+    </div>
+
+    <!--Script-->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const underline = document.querySelector('.underline');
+            const activeLink = document.querySelector('.nav-link.active');
+
+            // Hàm để di chuyển underline tới vị trí của liên kết được chọn
+            function moveUnderline(link) {
+                const linkRect = link.getBoundingClientRect();
+                const navRect = link.closest('.nav-wrapper').getBoundingClientRect();
+                underline.style.width = `${linkRect.width}px`;
+                underline.style.left = `${linkRect.left - navRect.left}px`;
+            }
+
+            // Thiết lập underline ban đầu
+            moveUnderline(navLinks[0]);
+
+            // Lắng nghe sự kiện click trên các liên kết
+            navLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    // Xóa class 'active' khỏi tất cả các liên kết
+                    navLinks.forEach(item => item.classList.remove('active'));
+
+                    // Thêm class 'active' cho liên kết được chọn
+                    this.classList.add('active');
+
+                    // Di chuyển underline tới liên kết được chọn
+                    moveUnderline(this);
+                });
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const navItems = document.querySelectorAll('.side-item');
+
+            navItems.forEach(item => {
+                item.addEventListener('click', function () {
+                    // Xóa lớp 'active' khỏi tất cả các mục
+                    navItems.forEach(i => i.classList.remove('active'));
+                    // Thêm lớp 'active' vào mục được chọn
+                    this.classList.add('active');
+                });
+            });
+        });
+
+        document.getElementById('search-icon').addEventListener('click', function () {
+            // Lấy giá trị từ ô nhập liệu
+            const searchValue = document.getElementById('search-input').value;
+
+            // Thực hiện hành động tìm kiếm
+            console.log('Searching for:', searchValue);
+
+            // Bạn có thể thêm logic tìm kiếm tại đây, ví dụ: gửi giá trị đến server hoặc điều hướng đến trang kết quả tìm kiếm
+        });
+
+    </script>
+
+
+</body>
+</html>

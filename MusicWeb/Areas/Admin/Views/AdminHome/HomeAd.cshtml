@@ -1,0 +1,109 @@
+﻿
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Areas/Admin/Views/Shared/LayoutAdmin.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Favicon icon-->
+    <link rel="shortcut icon" type="image/png" href="./assets/images/logos/favicon.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+          rel="stylesheet" />
+    @*<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">*@
+    <!-- Core Css -->
+    <link rel="stylesheet" href="./assets/css/theme.css" />
+
+    <style>
+        .background-image {
+            position: relative;
+            background-size: cover; /* Đảm bảo hình ảnh bao phủ toàn bộ */
+            background-position: center; /* Đặt hình ảnh ở giữa */
+            height: 300px; /* Chiều cao của khu vực chứa hình ảnh */
+            border-radius: 20px;
+        }
+
+        .content-overlay {
+            position: absolute;
+            top: 50%; /* Đặt ở giữa theo chiều dọc */
+            left: 28%; /* Đặt ở giữa theo chiều ngang */
+            transform: translate(-50%, -50%); /* Dịch chuyển để căn giữa */
+            color: white; /* Màu chữ */
+            background-color: rgba(0, 0, 0, 0.5); /*Nền mờ cho dễ đọc*/
+            padding: 20px; /*Khoảng cách giữa nội dung và viền */
+            width: 50%;
+            border-radius: 20px;
+        }
+
+            .content-overlay h1 {
+                font-size: 1.5rem;
+            }
+
+        .btn-play {
+            background-color: cyan; /* Màu nền cyan */
+            color: black; /* Màu chữ đen */
+            transition: background-color 0.3s; /* Hiệu ứng chuyển màu mượt mà */
+        }
+
+            .btn-play:hover {
+                background-color: transparent;/* Nền trong suốt khi hover */
+                color: cyan;
+            }
+
+        .btn-follow {
+            background-color: transparent; /* Nền ban đầu trong suốt */
+            border: 2px solid cyan; /* Viền cyan */
+            color: cyan; /* Màu chữ cyan */
+            transition: background-color 0.3s, color 0.3s; /* Hiệu ứng chuyển màu mượt mà */
+            margin-left: 10px;
+        }
+
+            .btn-follow:hover {
+                background-color: cyan; /* Nền cyan khi hover */
+                color: black; /* Chữ đen khi hover */
+            }
+    </style>
+</head>
+
+<body>
+    <main>
+        <!--start the project-->
+        <div class="mb-5 position-relative">
+            <div class="background-image" style="background-image: url('/Images/bgAlan.jpg');">
+                <div class="content-overlay">
+                    <h1 class="display-4 font-weight-bold mb-2">Alan Walker - Fade</h1>
+                    <p class="text-muted mb-4">You were the shadow to my light. Did you feel us? Another start. You fade away, afraid our aim is out of sight. Wanna see us alive.</p>
+                    <div>
+                        <button class="btn btn-play text-dark px-4 py-2 mr-2">PLAY</button>
+                        <button class="btn btn-follow text-cyan-400 px-4 py-2">FOLLOW</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end of project-->
+    </main>
+
+
+
+    <script src="./assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="./assets/libs/simplebar/dist/simplebar.min.js"></script>
+    <script src="./assets/libs/iconify-icon/dist/iconify-icon.min.js"></script>
+    @*<script src="./assets/libs/@preline/dropdown/index.js"></script>
+        <script src="./assets/libs/@preline/overlay/index.js"></script>*@
+    <script src="./assets/js/sidebarmenu.js"></script>
+
+
+
+    <script src="./assets/libs/apexcharts/dist/apexcharts.min.js"></script>
+    <script src="./assets/js/dashboard.js"></script>
+</body>
+
+</html>
+

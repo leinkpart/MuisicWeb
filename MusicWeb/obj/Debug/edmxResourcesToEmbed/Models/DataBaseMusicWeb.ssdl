@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MusicWebModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Albums">
+    <Key>
+      <PropertyRef Name="AlbumID" />
+    </Key>
+    <Property Name="AlbumID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AlbumName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ReleaseDate" Type="date" />
+    <Property Name="ArtistID" Type="int" />
+  </EntityType>
+  <EntityType Name="Artists">
+    <Key>
+      <PropertyRef Name="ArtistID" />
+    </Key>
+    <Property Name="ArtistID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ArtistName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Bio" Type="text" />
+  </EntityType>
+  <EntityType Name="ListenHistory">
+    <Key>
+      <PropertyRef Name="HistoryID" />
+    </Key>
+    <Property Name="HistoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="SongID" Type="int" />
+    <Property Name="ListenDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Playlist_Songs">
+    <Key>
+      <PropertyRef Name="PlaylistID" />
+      <PropertyRef Name="SongID" />
+    </Key>
+    <Property Name="PlaylistID" Type="int" Nullable="false" />
+    <Property Name="SongID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Playlists">
+    <Key>
+      <PropertyRef Name="PlaylistID" />
+    </Key>
+    <Property Name="PlaylistID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PlaylistName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserID" Type="int" />
+  </EntityType>
+  <EntityType Name="Songs">
+    <Key>
+      <PropertyRef Name="SongID" />
+    </Key>
+    <Property Name="SongID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SongName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Duration" Type="time" Precision="7" />
+    <Property Name="URL" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ArtistID" Type="int" />
+    <Property Name="AlbumID" Type="int" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Displayname" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="DateCreated" Type="datetime" />
+  </EntityType>
+  <Association Name="FK__Albums__ArtistID__48CFD27E">
+    <End Role="Artists" Type="Self.Artists" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Albums" Type="Self.Albums" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Artists">
+        <PropertyRef Name="ArtistID" />
+      </Principal>
+      <Dependent Role="Albums">
+        <PropertyRef Name="ArtistID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ListenHis__SongI__60A75C0F">
+    <End Role="Songs" Type="Self.Songs" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ListenHistory" Type="Self.ListenHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Songs">
+        <PropertyRef Name="SongID" />
+      </Principal>
+      <Dependent Role="ListenHistory">
+        <PropertyRef Name="SongID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ListenHis__UserI__5FB337D6">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ListenHistory" Type="Self.ListenHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="ListenHistory">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Playlist___Playl__5AEE82B9">
+    <End Role="Playlists" Type="Self.Playlists" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Playlist_Songs" Type="Self.Playlist_Songs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Playlists">
+        <PropertyRef Name="PlaylistID" />
+      </Principal>
+      <Dependent Role="Playlist_Songs">
+        <PropertyRef Name="PlaylistID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Playlist___SongI__5BE2A6F2">
+    <End Role="Songs" Type="Self.Songs" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Playlist_Songs" Type="Self.Playlist_Songs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Songs">
+        <PropertyRef Name="SongID" />
+      </Principal>
+      <Dependent Role="Playlist_Songs">
+        <PropertyRef Name="SongID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Playlists__UserI__5812160E">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Playlists" Type="Self.Playlists" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Playlists">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Songs__AlbumID__5535A963">
+    <End Role="Albums" Type="Self.Albums" Multiplicity="0..1" />
+    <End Role="Songs" Type="Self.Songs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Albums">
+        <PropertyRef Name="AlbumID" />
+      </Principal>
+      <Dependent Role="Songs">
+        <PropertyRef Name="AlbumID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Songs__ArtistID__5441852A">
+    <End Role="Artists" Type="Self.Artists" Multiplicity="0..1" />
+    <End Role="Songs" Type="Self.Songs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Artists">
+        <PropertyRef Name="ArtistID" />
+      </Principal>
+      <Dependent Role="Songs">
+        <PropertyRef Name="ArtistID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MusicWebModelStoreContainer">
+    <EntitySet Name="Albums" EntityType="Self.Albums" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Artists" EntityType="Self.Artists" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ListenHistory" EntityType="Self.ListenHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Playlist_Songs" EntityType="Self.Playlist_Songs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Playlists" EntityType="Self.Playlists" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Songs" EntityType="Self.Songs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Albums__ArtistID__48CFD27E" Association="Self.FK__Albums__ArtistID__48CFD27E">
+      <End Role="Artists" EntitySet="Artists" />
+      <End Role="Albums" EntitySet="Albums" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ListenHis__SongI__60A75C0F" Association="Self.FK__ListenHis__SongI__60A75C0F">
+      <End Role="Songs" EntitySet="Songs" />
+      <End Role="ListenHistory" EntitySet="ListenHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ListenHis__UserI__5FB337D6" Association="Self.FK__ListenHis__UserI__5FB337D6">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="ListenHistory" EntitySet="ListenHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Playlist___Playl__5AEE82B9" Association="Self.FK__Playlist___Playl__5AEE82B9">
+      <End Role="Playlists" EntitySet="Playlists" />
+      <End Role="Playlist_Songs" EntitySet="Playlist_Songs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Playlist___SongI__5BE2A6F2" Association="Self.FK__Playlist___SongI__5BE2A6F2">
+      <End Role="Songs" EntitySet="Songs" />
+      <End Role="Playlist_Songs" EntitySet="Playlist_Songs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Playlists__UserI__5812160E" Association="Self.FK__Playlists__UserI__5812160E">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Playlists" EntitySet="Playlists" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Songs__AlbumID__5535A963" Association="Self.FK__Songs__AlbumID__5535A963">
+      <End Role="Albums" EntitySet="Albums" />
+      <End Role="Songs" EntitySet="Songs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Songs__ArtistID__5441852A" Association="Self.FK__Songs__ArtistID__5441852A">
+      <End Role="Artists" EntitySet="Artists" />
+      <End Role="Songs" EntitySet="Songs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

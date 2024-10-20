@@ -1,0 +1,207 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\H\u1ECDc T\u1EADp\\L\u1EADp Tr\u00ECnh Web\\MusicWeb\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{06ADC9A5-67F0-4A98-B5D8-5B838AA76E7B}|MusicWeb\\MusicWeb.csproj|D:\\H\u1ECDc T\u1EADp\\L\u1EADp Tr\u00ECnh Web\\MusicWeb\\musicweb\\views\\musicweb\\home.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{06ADC9A5-67F0-4A98-B5D8-5B838AA76E7B}|MusicWeb\\MusicWeb.csproj|solutionrelative:musicweb\\views\\musicweb\\home.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06ADC9A5-67F0-4A98-B5D8-5B838AA76E7B}|MusicWeb\\MusicWeb.csproj|d:\\h\u1ECDc t\u1EADp\\l\u1EADp tr\u00ECnh web\\musicweb\\musicweb\\views\\shared\\layoutpage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{06ADC9A5-67F0-4A98-B5D8-5B838AA76E7B}|MusicWeb\\MusicWeb.csproj|solutionrelative:musicweb\\views\\shared\\layoutpage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06ADC9A5-67F0-4A98-B5D8-5B838AA76E7B}|MusicWeb\\MusicWeb.csproj|D:\\H\u1ECDc T\u1EADp\\L\u1EADp Tr\u00ECnh Web\\MusicWeb\\musicweb\\scripts\\playsong.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{06ADC9A5-67F0-4A98-B5D8-5B838AA76E7B}|MusicWeb\\MusicWeb.csproj|solutionrelative:musicweb\\scripts\\playsong.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06ADC9A5-67F0-4A98-B5D8-5B838AA76E7B}|MusicWeb\\MusicWeb.csproj|D:\\H\u1ECDc T\u1EADp\\L\u1EADp Tr\u00ECnh Web\\MusicWeb\\musicweb\\controllers\\musicwebcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06ADC9A5-67F0-4A98-B5D8-5B838AA76E7B}|MusicWeb\\MusicWeb.csproj|solutionrelative:musicweb\\controllers\\musicwebcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06ADC9A5-67F0-4A98-B5D8-5B838AA76E7B}|MusicWeb\\MusicWeb.csproj|D:\\H\u1ECDc T\u1EADp\\L\u1EADp Tr\u00ECnh Web\\MusicWeb\\musicweb\\areas\\admin\\controllers\\adminhomecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06ADC9A5-67F0-4A98-B5D8-5B838AA76E7B}|MusicWeb\\MusicWeb.csproj|solutionrelative:musicweb\\areas\\admin\\controllers\\adminhomecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06ADC9A5-67F0-4A98-B5D8-5B838AA76E7B}|MusicWeb\\MusicWeb.csproj|D:\\H\u1ECDc T\u1EADp\\L\u1EADp Tr\u00ECnh Web\\MusicWeb\\musicweb\\areas\\admin\\views\\shared\\layoutadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{06ADC9A5-67F0-4A98-B5D8-5B838AA76E7B}|MusicWeb\\MusicWeb.csproj|solutionrelative:musicweb\\areas\\admin\\views\\shared\\layoutadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06ADC9A5-67F0-4A98-B5D8-5B838AA76E7B}|MusicWeb\\MusicWeb.csproj|D:\\H\u1ECDc T\u1EADp\\L\u1EADp Tr\u00ECnh Web\\MusicWeb\\musicweb\\areas\\admin\\views\\adminhome\\homead.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{06ADC9A5-67F0-4A98-B5D8-5B838AA76E7B}|MusicWeb\\MusicWeb.csproj|solutionrelative:musicweb\\areas\\admin\\views\\adminhome\\homead.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06ADC9A5-67F0-4A98-B5D8-5B838AA76E7B}|MusicWeb\\MusicWeb.csproj|D:\\H\u1ECDc T\u1EADp\\L\u1EADp Tr\u00ECnh Web\\MusicWeb\\musicweb\\areas\\admin\\adminarearegistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06ADC9A5-67F0-4A98-B5D8-5B838AA76E7B}|MusicWeb\\MusicWeb.csproj|solutionrelative:musicweb\\areas\\admin\\adminarearegistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06ADC9A5-67F0-4A98-B5D8-5B838AA76E7B}|MusicWeb\\MusicWeb.csproj|D:\\H\u1ECDc T\u1EADp\\L\u1EADp Tr\u00ECnh Web\\MusicWeb\\musicweb\\content\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{06ADC9A5-67F0-4A98-B5D8-5B838AA76E7B}|MusicWeb\\MusicWeb.csproj|solutionrelative:musicweb\\content\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LayoutPage.cshtml",
+              "DocumentMoniker": "D:\\H\u1ECDc T\u1EADp\\L\u1EADp Tr\u00ECnh Web\\MusicWeb\\MusicWeb\\Views\\Shared\\LayoutPage.cshtml",
+              "RelativeDocumentMoniker": "MusicWeb\\Views\\Shared\\LayoutPage.cshtml",
+              "ToolTip": "D:\\H\u1ECDc T\u1EADp\\L\u1EADp Tr\u00ECnh Web\\MusicWeb\\MusicWeb\\Views\\Shared\\LayoutPage.cshtml",
+              "RelativeToolTip": "MusicWeb\\Views\\Shared\\LayoutPage.cshtml",
+              "ViewState": "AgIAAMgAAAAAAAAAAAAAAFEBAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-08T16:22:27.703Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "playSong.js",
+              "DocumentMoniker": "D:\\H\u1ECDc T\u1EADp\\L\u1EADp Tr\u00ECnh Web\\MusicWeb\\MusicWeb\\Scripts\\playSong.js",
+              "RelativeDocumentMoniker": "MusicWeb\\Scripts\\playSong.js",
+              "ToolTip": "D:\\H\u1ECDc T\u1EADp\\L\u1EADp Tr\u00ECnh Web\\MusicWeb\\MusicWeb\\Scripts\\playSong.js",
+              "RelativeToolTip": "MusicWeb\\Scripts\\playSong.js",
+              "ViewState": "AgIAABIAAAAAAAAAAAAuwEQAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-10-19T14:16:31.058Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MusicWebController.cs",
+              "DocumentMoniker": "D:\\H\u1ECDc T\u1EADp\\L\u1EADp Tr\u00ECnh Web\\MusicWeb\\MusicWeb\\Controllers\\MusicWebController.cs",
+              "RelativeDocumentMoniker": "MusicWeb\\Controllers\\MusicWebController.cs",
+              "ToolTip": "D:\\H\u1ECDc T\u1EADp\\L\u1EADp Tr\u00ECnh Web\\MusicWeb\\MusicWeb\\Controllers\\MusicWebController.cs",
+              "RelativeToolTip": "MusicWeb\\Controllers\\MusicWebController.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-08T17:13:47.96Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AdminHomeController.cs",
+              "DocumentMoniker": "D:\\H\u1ECDc T\u1EADp\\L\u1EADp Tr\u00ECnh Web\\MusicWeb\\MusicWeb\\Areas\\Admin\\Controllers\\AdminHomeController.cs",
+              "RelativeDocumentMoniker": "MusicWeb\\Areas\\Admin\\Controllers\\AdminHomeController.cs",
+              "ToolTip": "D:\\H\u1ECDc T\u1EADp\\L\u1EADp Tr\u00ECnh Web\\MusicWeb\\MusicWeb\\Areas\\Admin\\Controllers\\AdminHomeController.cs",
+              "RelativeToolTip": "MusicWeb\\Areas\\Admin\\Controllers\\AdminHomeController.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA0AAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T16:16:11.631Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Home.cshtml",
+              "DocumentMoniker": "D:\\H\u1ECDc T\u1EADp\\L\u1EADp Tr\u00ECnh Web\\MusicWeb\\MusicWeb\\Views\\MusicWeb\\Home.cshtml",
+              "RelativeDocumentMoniker": "MusicWeb\\Views\\MusicWeb\\Home.cshtml",
+              "ToolTip": "D:\\H\u1ECDc T\u1EADp\\L\u1EADp Tr\u00ECnh Web\\MusicWeb\\MusicWeb\\Views\\MusicWeb\\Home.cshtml",
+              "RelativeToolTip": "MusicWeb\\Views\\MusicWeb\\Home.cshtml",
+              "ViewState": "AgIAAJYAAAAAAAAAAAAAAKYAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-08T16:25:21.397Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "LayoutAdmin.cshtml",
+              "DocumentMoniker": "D:\\H\u1ECDc T\u1EADp\\L\u1EADp Tr\u00ECnh Web\\MusicWeb\\MusicWeb\\Areas\\Admin\\Views\\Shared\\LayoutAdmin.cshtml",
+              "RelativeDocumentMoniker": "MusicWeb\\Areas\\Admin\\Views\\Shared\\LayoutAdmin.cshtml",
+              "ToolTip": "D:\\H\u1ECDc T\u1EADp\\L\u1EADp Tr\u00ECnh Web\\MusicWeb\\MusicWeb\\Areas\\Admin\\Views\\Shared\\LayoutAdmin.cshtml",
+              "RelativeToolTip": "MusicWeb\\Areas\\Admin\\Views\\Shared\\LayoutAdmin.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHABAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-14T16:34:19.719Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1a46fd64-28d5-434c-8eb3-17a02d419b53}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "HomeAd.cshtml",
+              "DocumentMoniker": "D:\\H\u1ECDc T\u1EADp\\L\u1EADp Tr\u00ECnh Web\\MusicWeb\\MusicWeb\\Areas\\Admin\\Views\\AdminHome\\HomeAd.cshtml",
+              "RelativeDocumentMoniker": "MusicWeb\\Areas\\Admin\\Views\\AdminHome\\HomeAd.cshtml",
+              "ToolTip": "D:\\H\u1ECDc T\u1EADp\\L\u1EADp Tr\u00ECnh Web\\MusicWeb\\MusicWeb\\Areas\\Admin\\Views\\AdminHome\\HomeAd.cshtml",
+              "RelativeToolTip": "MusicWeb\\Areas\\Admin\\Views\\AdminHome\\HomeAd.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-14T16:17:36.493Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AdminAreaRegistration.cs",
+              "DocumentMoniker": "D:\\H\u1ECDc T\u1EADp\\L\u1EADp Tr\u00ECnh Web\\MusicWeb\\MusicWeb\\Areas\\Admin\\AdminAreaRegistration.cs",
+              "RelativeDocumentMoniker": "MusicWeb\\Areas\\Admin\\AdminAreaRegistration.cs",
+              "ToolTip": "D:\\H\u1ECDc T\u1EADp\\L\u1EADp Tr\u00ECnh Web\\MusicWeb\\MusicWeb\\Areas\\Admin\\AdminAreaRegistration.cs",
+              "RelativeToolTip": "MusicWeb\\Areas\\Admin\\AdminAreaRegistration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T16:15:34.801Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Site.css",
+              "DocumentMoniker": "D:\\H\u1ECDc T\u1EADp\\L\u1EADp Tr\u00ECnh Web\\MusicWeb\\MusicWeb\\Content\\Site.css",
+              "RelativeDocumentMoniker": "MusicWeb\\Content\\Site.css",
+              "ToolTip": "D:\\H\u1ECDc T\u1EADp\\L\u1EADp Tr\u00ECnh Web\\MusicWeb\\MusicWeb\\Content\\Site.css",
+              "RelativeToolTip": "MusicWeb\\Content\\Site.css",
+              "ViewState": "AgIAAF4AAAAAAAAAAAAYwH0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-10-10T15:29:42.226Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

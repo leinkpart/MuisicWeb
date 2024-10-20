@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "DashBoard";
+    Layout = "~/Areas/Admin/Views/Shared/LayoutAdmin.cshtml";
+}
+
+<div class="container">
+    <h2>Profit & Expenses</h2>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="chart">
+                <!-- Đây là nơi bạn sẽ nhúng biểu đồ, ví dụ dùng Chart.js hoặc một thư viện khác -->
+                <canvas id="myChart"></canvas>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <h4>Traffic Distribution</h4>
+                <p>$36,358</p>
+            </div>
+            <div class="card">
+                <h4>Product Sales</h4>
+                <p>$6,820</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+

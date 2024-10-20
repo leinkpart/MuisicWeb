@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MusicWebAppModelStoreContainer" CdmEntityContainer="MusicWebAppEntities">
+    <EntitySetMapping Name="albums">
+      <EntityTypeMapping TypeName="MusicWebAppModel.album">
+        <MappingFragment StoreEntitySet="albums">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="artist_id" ColumnName="artist_id" />
+          <ScalarProperty Name="release_date" ColumnName="release_date" />
+          <ScalarProperty Name="cover_image_path" ColumnName="cover_image_path" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="artists">
+      <EntityTypeMapping TypeName="MusicWebAppModel.artist">
+        <MappingFragment StoreEntitySet="artists">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="bio" ColumnName="bio" />
+          <ScalarProperty Name="avatar_path" ColumnName="avatar_path" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="comments">
+      <EntityTypeMapping TypeName="MusicWebAppModel.comment">
+        <MappingFragment StoreEntitySet="comments">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="song_id" ColumnName="song_id" />
+          <ScalarProperty Name="content" ColumnName="content" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="favorites">
+      <EntityTypeMapping TypeName="MusicWebAppModel.favorite">
+        <MappingFragment StoreEntitySet="favorites">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="song_id" ColumnName="song_id" />
+          <ScalarProperty Name="added_at" ColumnName="added_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="genres">
+      <EntityTypeMapping TypeName="MusicWebAppModel.genre">
+        <MappingFragment StoreEntitySet="genres">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="playlist_songs">
+      <EntityTypeMapping TypeName="MusicWebAppModel.playlist_songs">
+        <MappingFragment StoreEntitySet="playlist_songs">
+          <ScalarProperty Name="playlist_id" ColumnName="playlist_id" />
+          <ScalarProperty Name="song_id" ColumnName="song_id" />
+          <ScalarProperty Name="added_at" ColumnName="added_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="playlists">
+      <EntityTypeMapping TypeName="MusicWebAppModel.playlist">
+        <MappingFragment StoreEntitySet="playlists">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="song_plays">
+      <EntityTypeMapping TypeName="MusicWebAppModel.song_plays">
+        <MappingFragment StoreEntitySet="song_plays">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="song_id" ColumnName="song_id" />
+          <ScalarProperty Name="played_at" ColumnName="played_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="songs">
+      <EntityTypeMapping TypeName="MusicWebAppModel.song">
+        <MappingFragment StoreEntitySet="songs">
+          <ScalarProperty Name="avatarPath" ColumnName="avatarPath" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="artist_id" ColumnName="artist_id" />
+          <ScalarProperty Name="album_id" ColumnName="album_id" />
+          <ScalarProperty Name="genre_id" ColumnName="genre_id" />
+          <ScalarProperty Name="duration" ColumnName="duration" />
+          <ScalarProperty Name="file_path" ColumnName="file_path" />
+          <ScalarProperty Name="stream_count" ColumnName="stream_count" />
+          <ScalarProperty Name="lyrics" ColumnName="lyrics" />
+          <ScalarProperty Name="release_date" ColumnName="release_date" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="MusicWebAppModel.user">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="fullname" ColumnName="fullname" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="avatar_path" ColumnName="avatar_path" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
