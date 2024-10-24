@@ -174,67 +174,67 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminHomeController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MusicWebController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Album.cs">
-      <DependentUpon>DataMusicWeb.tt</DependentUpon>
+      <DependentUpon>MusicWeb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Artist.cs">
-      <DependentUpon>DataMusicWeb.tt</DependentUpon>
+      <DependentUpon>MusicWeb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Comment.cs">
-      <DependentUpon>DataMusicWeb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataMusicWeb.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataMusicWeb.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataMusicWeb.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataMusicWeb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataMusicWeb.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataMusicWeb.edmx</DependentUpon>
+      <DependentUpon>MusicWeb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Follower.cs">
-      <DependentUpon>DataMusicWeb.tt</DependentUpon>
+      <DependentUpon>MusicWeb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Genre.cs">
-      <DependentUpon>DataMusicWeb.tt</DependentUpon>
+      <DependentUpon>MusicWeb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ListeningHistory.cs">
-      <DependentUpon>DataMusicWeb.tt</DependentUpon>
+      <DependentUpon>MusicWeb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Lyric.cs">
-      <DependentUpon>DataMusicWeb.tt</DependentUpon>
+      <DependentUpon>MusicWeb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MusicWeb.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MusicWeb.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MusicWeb.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MusicWeb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MusicWeb.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MusicWeb.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Playlist.cs">
-      <DependentUpon>DataMusicWeb.tt</DependentUpon>
+      <DependentUpon>MusicWeb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PlaylistSong.cs">
-      <DependentUpon>DataMusicWeb.tt</DependentUpon>
+      <DependentUpon>MusicWeb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Rating.cs">
-      <DependentUpon>DataMusicWeb.tt</DependentUpon>
+      <DependentUpon>MusicWeb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Song.cs">
-      <DependentUpon>DataMusicWeb.tt</DependentUpon>
+      <DependentUpon>MusicWeb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SongLike.cs">
-      <DependentUpon>DataMusicWeb.tt</DependentUpon>
+      <DependentUpon>MusicWeb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Subscription.cs">
-      <DependentUpon>DataMusicWeb.tt</DependentUpon>
+      <DependentUpon>MusicWeb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\User.cs">
-      <DependentUpon>DataMusicWeb.tt</DependentUpon>
+      <DependentUpon>MusicWeb.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -255,16 +255,19 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\footer.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\alan.jpg" />
     <Content Include="Images\bg.png" />
     <Content Include="Images\bgAlan.jpg" />
+    <Content Include="Images\logo.jpg" />
     <Content Include="Images\onmyway.jpg" />
     <Content Include="Images\SingersImage\AlanWalker.jpg" />
     <Content Include="Images\SingersImage\BuiTruongLinh.jpg" />
     <Content Include="Images\SingersImage\DuongDomic.jpg" />
+    <Content Include="Images\SingersImage\Emin.jpg" />
     <Content Include="Images\SingersImage\HaAnhTuan.jpg" />
     <Content Include="Images\SingersImage\HoangTon.jpg" />
     <Content Include="Images\SingersImage\LamTuan.jpg" />
@@ -293,15 +296,16 @@
     <Content Include="Images\SongsIamge\TuSu.jpg" />
     <Content Include="Images\SongsIamge\xindunglangim.jpg" />
     <Content Include="Images\SongsIamge\yeuemratnhieu.jpg" />
-    <Content Include="Models\DataMusicWeb.Context.tt">
+    <Content Include="Images\userImg.png" />
+    <Content Include="Models\MusicWeb.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DataMusicWeb.edmx</DependentUpon>
-      <LastGenOutput>DataMusicWeb.Context.cs</LastGenOutput>
+      <DependentUpon>MusicWeb.edmx</DependentUpon>
+      <LastGenOutput>MusicWeb.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\DataMusicWeb.tt">
+    <Content Include="Models\MusicWeb.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DataMusicWeb.edmx</DependentUpon>
-      <LastGenOutput>DataMusicWeb.cs</LastGenOutput>
+      <DependentUpon>MusicWeb.edmx</DependentUpon>
+      <LastGenOutput>MusicWeb.cs</LastGenOutput>
     </Content>
     <Content Include="MusicMP3\Alone.mp3" />
     <Content Include="MusicMP3\BinhYen.mp3" />
@@ -332,14 +336,15 @@
     <Content Include="Areas\Admin\Views\AdminHome\HomeAd.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\LayoutAdmin.cshtml" />
     <Content Include="Areas\Admin\Views\AdminHome\DashBoard.cshtml" />
-    <EntityDeploy Include="Models\DataMusicWeb.edmx">
+    <EntityDeploy Include="Models\MusicWeb.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DataMusicWeb.Designer.cs</LastGenOutput>
+      <LastGenOutput>MusicWeb.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\DataMusicWeb.edmx.diagram">
-      <DependentUpon>DataMusicWeb.edmx</DependentUpon>
+    <Content Include="Models\MusicWeb.edmx.diagram">
+      <DependentUpon>MusicWeb.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.7.1.intellisense.js" />
+    <Content Include="Scripts\dropdownMenu.js" />
     <Content Include="Scripts\jquery-3.7.1.js" />
     <Content Include="Scripts\jquery-3.7.1.min.js" />
     <Content Include="Scripts\jquery-3.7.1.slim.js" />
@@ -351,6 +356,8 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\playSong.js" />
+    <Content Include="Scripts\UserDropdown.js" />
+    <Content Include="Template\MailFrame.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -362,12 +369,12 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\LayoutPage.cshtml" />
     <Content Include="Views\MusicWeb\Home.cshtml" />
     <Content Include="Views\Shared\PlaybackControls.cshtml" />
+    <Content Include="Views\Shared\UserPartial.cshtml" />
+    <Content Include="Views\User\Register.cshtml" />
+    <Content Include="Views\User\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

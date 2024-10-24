@@ -8,8 +8,11 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>@ViewBag.Title - Music Streaming</title>
+    <title>@ViewBag.Title - MusicaLy</title>
+    <link rel="icon" href="~/Images/logo.jpg" type="image/png">
+
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
+
 
     <!-- Link to Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -17,7 +20,10 @@
     <!-- Link to Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.7.2/font/bootstrap-icons.min.css">
 
-    <script src="~/Scripts/playSong.js"></script>
+    <link rel="stylesheet" href="~/Content/footer.css" />
+
+    <script src="~/Scripts/playSong.js" defer></script>
+    <script src="~/Scripts/UserDropdown.js" defer></script>
 
     <style>
         body {
@@ -73,6 +79,18 @@
             .sidebar h4 {
                 color: white;
             }
+
+            .logo-header {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .logo-header img {
+                width: 40px;
+                border-radius: 5px;
+                margin-right: 10px;
+             } 
 
         .content {
             margin-left: 270px;
@@ -177,7 +195,7 @@
         }
 
             .ItemSong:hover {
-                background-color: #19376D;
+                background-color: #27374D;
             }
 
             .ItemSong i {
@@ -200,8 +218,7 @@
             right: 0;
             height: 60px;
             background-color: #021526;
-            /*            border-bottom: 1px solid #ddd;*/
-            z-index: 999;
+            z-index: 99;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -210,7 +227,6 @@
             border-radius: 15px;
             margin-left: 20px;
             margin-top: 10px;
-            margin-right: 10px
         }
 
         /* Underline styles */
@@ -275,7 +291,7 @@
         }
 
             .navbar .navbar-items a {
-                margin-right: 27px;
+                margin-right: 23px;
                 color: #666;
                 text-decoration: none;
                 font-size: 16px;
@@ -291,7 +307,7 @@
                 }
 
             .navbar .navbar-items .bi-person-circle {
-                font-size: 30px;
+                font-size: 25px;
             }
 
         /* Chấm thông báo */
@@ -331,12 +347,71 @@
             color: white;
             display: flex;
             align-items: center;
-            justify-content: center;
-            z-index: 999;
+            /*            justify-content: center;*/
+            z-index: 99;
             box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
             margin: 10px;
             border-radius: 15px;
         }
+
+
+        /*Phần dropdown user*/
+        .user-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #0A2647;
+            min-width: 240px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 100;
+            right: 50%;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        .user-icon {
+            margin-right: 30px;
+            width: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .menu-drop {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            width: 100%;
+        }
+
+            .menu-drop i:first-child {
+                margin-right: 12px;
+            }
+
+            .menu-drop span {
+                flex-grow: 1; /* Để span chiếm hết không gian trống còn lại */
+            }
+
+            .menu-drop i:last-child {
+                margin-left: 55px; /* Đẩy biểu tượng chevron sang bên phải */
+            }
+
+        .dropdown-content a {
+            color: #9DB2BF;
+            padding: 12px;
+            text-decoration: none;
+            display: block;
+            width: 100%;
+        }
+
+            .dropdown-content a:hover {
+                background-color: #27374D;
+                border-radius: 10px;
+            }
 
         /* Fix scrolling behavior */
         body, html {
@@ -347,7 +422,7 @@
 <body>
     <!-- Sidebar -->
     <div class="sidebar">
-        <h4>Music</h4>
+        <h4 class="logo-header"> <img src="~/Images/logo.jpg" title="Logo" />MusicaLy</h4>
         <a href="#" class="side-item">
             <i class="bi bi-music-note-beamed"></i>
             <p>Playlist</p>
@@ -376,7 +451,7 @@
                         <h5 class="song-title">@s.SongTitle</h5>
                         <span class="subtitle">@s.Artist.ArtistName</span>
                     </div>
-                    <i class="bi play-circle bi-play-circle-fill"></i>
+                    <i class="bi play-circle bi-play-circle-fill" title="Play"></i>
                     <audio id="audio_@s.SongID" src="~/MusicMP3/@s.AudioFile"></audio>
                 </div>
             }
@@ -397,21 +472,19 @@
         <!-- Search bar in the center -->
         <div class="navbar-search">
             <input type="text" placeholder="Search for music, podcasts, etc." class="form-control bg-search border-0">
-            <i class="bi bi-search"></i>
+            <i class="bi bi-search" title="Search"></i>
         </div>
 
         <!-- Thêm vào biểu tượng chuông -->
         <div class="navbar-items">
             <!-- Icon thông báo -->
             <a href="#" class="notification">
-                <i class="bi bi-bell"></i>
+                <i class="bi bi-bell" title="Notification"></i>
                 <span class="notification-dot"></span>
             </a>
 
             <!-- Biểu tượng user và tên người dùng -->
-            <a href="#" class="user-icon">
-                <i class="bi bi-person-circle"></i>
-            </a>
+            @Html.Action("UserPartial", "MusicWeb")
         </div>
 
     </div>
@@ -424,9 +497,38 @@
 
     <!-- Footer -->
     <div class="footer">
-        <div>
-            hello
+        <div class="master_play">
+            <div class="wave">
+                <div class="wave1"></div>
+                <div class="wave1"></div>
+                <div class="wave1"></div>
+            </div>
+            <img src="~/Images/onmyway.jpg" id="poster_master_play">
+            <h5 id="title">
+                On My Way <br>
+                <span class="subtitle">Alan Walker</span>
+            </h5>
+            <div class="icon">
+                <i class="bi bi-skip-start-fill" id="back"></i>
+                <i class="bi bi-play-fill" id="masterPlay"></i>
+                <i class="bi bi-skip-end-fill" id="next"></i>
+            </div>
+            @*<span id="currentStart">00:00</span>
+            <div class="bar">
+                <input type="range" id="seek" min="0" value="0" max="100">
+                <div class="bar2" id="bar2"></div>
+                <div class="dot"></div>
+            </div>
+            <span id="currentEnd">00:00</span>
+
+            <div class="vol">
+                <i class="bi bi-volume-down-fill" id="vol_icon"></i>
+                <input type="range" id="vol" min="0" value="30" max="100">
+                <div class="vol_bar"></div>
+                <div class="dot" id="vol_dot"></div>
+            </div>*@
         </div>
+
     </div>
 
     <!--Script-->
@@ -484,7 +586,6 @@
 
             // Bạn có thể thêm logic tìm kiếm tại đây, ví dụ: gửi giá trị đến server hoặc điều hướng đến trang kết quả tìm kiếm
         });
-
     </script>
 
 

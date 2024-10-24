@@ -2,19 +2,15 @@
 
 CREATE TABLE Users (
     UserID INT PRIMARY KEY IDENTITY(1,1),                -- ID của người dùng, tự động tăng
-    Username NVARCHAR(50) NOT NULL UNIQUE,               -- Tên đăng nhập, phải là duy nhất
     Email NVARCHAR(100) NOT NULL UNIQUE,                 -- Email người dùng, phải là duy nhất
-    PasswordHash NVARCHAR(255) NOT NULL,				 -- Mật khẩu được mã hóa
-	Salt NVARCHAR(50) NOT NULL,
+    Password NVARCHAR(255) NOT NULL,				 
     DisplayName NVARCHAR(100),                           -- Tên hiển thị
     DateOfBirth DATE,                                    -- Ngày sinh
     Gender NVARCHAR(10),                                 -- Giới tính
-    Country NVARCHAR(50),                                -- Quốc gia
-    Avatar NVARCHAR(255),                                -- Đường dẫn ảnh đại diện người dùng
     CreatedAt DATETIME DEFAULT GETDATE(),                 -- Ngày tạo tài khoản
-	LastLogin DATETIME									 -- Thời gian đăng nhập cuối cùng
 );
 GO
+
 
 CREATE TABLE Artists (
     ArtistID INT PRIMARY KEY IDENTITY(1,1),              -- ID nghệ sĩ, tự động tăng

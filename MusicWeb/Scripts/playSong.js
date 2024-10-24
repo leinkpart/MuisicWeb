@@ -11,7 +11,7 @@
 
             // Kiểm tra nếu bài đang phát và nút được nhấn là bài hiện tại
             if (audio === currentAudio && !audio.paused) {
-                audio.pause(); // Tạm dừng nhạc nhưng không đặt lại thời gian
+                audio.pause(); // Tạm dừng nhạc 
                 this.className = this.className.replace('bi-pause-circle-fill', 'bi-play-circle-fill'); // Đổi biểu tượng thành play
                 currentAudio = null; // Đặt currentAudio về null khi tạm dừng
                 currentButton = null; // Đặt currentButton về null khi tạm dừng
@@ -67,4 +67,27 @@
             currentButton = null;
         }
     }  
+
+
+    let leftScroll = document.getElementById('leftScroll');
+    let rightScroll = document.getElementById('rightScroll');
+    let pop_song = document.getElementsByClassName('pop_song')[0];
+
+    leftScroll.addEventListener('click', () => {
+        pop_song.scrollLeft -= 64;
+    })
+    rightScroll.addEventListener('click', () => {
+        pop_song.scrollLeft += 64;
+    })
+
+    let left_scrolls = document.getElementById('left_scrolls');
+    let right_scrolls = document.getElementById('right_scrolls');
+    let artistContainer = document.getElementsByClassName('artistContainer')[0];
+
+    left_scrolls.addEventListener('click', () => {
+        artistContainer.scrollLeft -= 44;
+    })
+    right_scrolls.addEventListener('click', () => {
+        artistContainer.scrollLeft += 44;
+    })
 });

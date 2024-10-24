@@ -1,0 +1,59 @@
+﻿@{
+    var hoTen = "";
+    var userCookie = Request.Cookies["UserLogin"];
+    if (userCookie != null)
+    {
+        hoTen = HttpUtility.UrlDecode(userCookie["DisplayName"]);
+    }
+}
+
+
+<div class="user-dropdown">
+    <img src="~/Images/userImg.png" class="user-icon" id="user-icon" title="@hoTen" />
+
+    @if (!string.IsNullOrEmpty(hoTen))
+    {
+        <!--When User Logged in-->
+        <div class="dropdown-content" id="dropdown-content">
+            <a>
+                <span class="username" style="padding: 15px; color: white; font-size: 16px;">
+                    Hi, @hoTen
+                </span>
+            </a>
+
+            <a class="menu-drop" href="#">
+                <i class="bi bi-person-lines-fill"></i>
+                <span>Profile</span>
+            </a>
+
+            <a class="menu-drop" href="#">
+                <i class="bi bi-gear"></i>
+                <span>Setting & Privacy</span>
+            </a>
+
+            <a class="menu-drop" href="#">
+                <i class="bi bi-question-circle"></i>
+                <span>Help & Support</span>
+            </a>
+
+            <a class="menu-drop" href="@Url.Action("Logout", "User")">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Log out</span>
+            </a>
+        </div>
+    }
+    else
+    {
+        <div class="dropdown-content" id="dropdown-content">
+            <a class="menu-drop" href="@Url.Action("login", "User")">
+                <i class="bi bi-box-arrow-in-right"></i>
+                <span>Sign In</span>
+            </a>
+
+            <a class="menu-drop" href="@Url.Action("Register", "User")">
+                <i class="bi bi-person-plus"></i>
+                <span>Register</span>
+            </a>
+        </div>
+    }
+</div>

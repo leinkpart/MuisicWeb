@@ -1,0 +1,201 @@
+﻿@model MusicWeb.Models.User
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Register - MusicaLy</title>
+    <link rel="icon" href="~/Images/logo.jpg" type="image/png">
+
+    <!-- Liên kết đến Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+    <!-- Thêm phần CSS tùy chỉnh -->
+    <style>
+        body {
+            background-image: url('https://i.imgur.com/xmSxPsa.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .register-container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 750px;
+            margin: 20px auto;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .form-control {
+            background-color: #f9f9f9;
+            font-size: 0.85rem;
+        }
+
+        .form-label {
+            font-size: 0.85rem;
+            color: white;
+        }
+
+        .btn-default {
+            background-color: #007bff;
+            color: white;
+            font-size: 0.85rem;
+        }
+
+            .btn-default:hover {
+                background-color: #0056b3;
+                color: white;
+            }
+
+        .text-danger {
+            font-size: 0.8rem;
+        }
+
+        .btn-link {
+            font-size: 0.85rem;
+        }
+
+        .password-field {
+            position: relative;
+        }
+
+            .password-field input {
+                padding-right: 35px;
+            }
+
+        .toggle-password {
+            position: absolute;
+            top: 75%;
+            right: 10px;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #007bff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="register-container">
+            <h3 class="text-primary">Register New Account</h3>
+
+            <div class="container mt-4">
+                <form action="/User/Register" method="POST" class="row g-3">
+                    <!-- Cột bên trái -->
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="DisplayName" class="form-label">Name</label>
+                            <input asp-for="DisplayName" class="form-control" name="DisplayName" />
+                            <span asp-validation-for="DisplayName"></span>
+                            <span class="text-danger error-message">@TempData["error1"]</span>
+                        </div>
+                      
+                        <!-- Trường Mật Khẩu -->
+                        <div class="form-group password-field">
+                            <label asp-for="Password" class="form-label">Password</label>
+                            <input asp-for="Password" type="password" class="form-control" id="password" name="Password" />
+                            <span class="toggle-password" data-target="#password">
+                                <i class="fas fa-eye"></i>
+                            </span>
+                            <span asp-validation-for="Password"></span>
+                            <span class="text-danger error-message">@TempData["error8"]</span>
+                        </div>
+
+                        <!-- Trường Nhập Lại Mật Khẩu -->
+                        <div class="form-group password-field">
+                            <label asp-for="ConfirmPassword" class="form-label">Confirm Password</label>
+                            <input asp-for="ConfirmPassword" type="password" class="form-control" id="confirm-password" name="ConfirmPassword" />
+                            <span class="toggle-password" data-target="#confirm-password">
+                                <i class="fas fa-eye"></i>
+                            </span>
+                            <span asp-validation-for="ConfirmPassword"></span>
+                            <span class="text-danger error-message">@TempData["error3"]</span>
+                            <span class="text-danger error-message">@TempData["error4"]</span>
+                        </div>
+                    </div>
+
+                    <!-- Cột bên phải -->
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Email" class="form-label">Email</label>
+                            <input asp-for="Email" type="email" class="form-control" name="Email" />
+                            <span asp-validation-for="Email"></span>
+                            <span class="text-danger error-message">@TempData["error2"]</span>
+                            <span class="text-danger error-message">@TempData["error7"]</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="NgaySinh" class="form-label">Date of Birth</label>
+                            <input asp-for="NgaySinh" type="date" class="form-control" name="NgaySinh" />
+                            <span asp-validation-for="NgaySinh"></span>
+                            <span class="text-danger error-message">@TempData["error6"]</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Gender" class="form-label">Gender</label>
+                            <select asp-for="Gender" class="form-control" name="Gender">
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <span asp-validation-for="Gender"></span>
+                            <span class="text-danger error-message">@TempData["error5"]</span>
+                        </div>
+                    </div>
+
+                    <!-- Nút Đăng Ký -->
+                    <div class="col-12 mt-4">
+                        <button type="submit" class="btn btn-primary">Sign Up</button>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.ActionLink("Back to LogIn", "LogIn", null, new { @class = "btn btn-link" })
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Bootstrap JS (nếu cần) -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <!-- JavaScript để xử lý ẩn/hiện mật khẩu -->
+    <script>
+        $(document).ready(function () {
+            $(".toggle-password").click(function () {
+                var input = $($(this).attr("data-target"));
+                var icon = $(this).find("i");
+
+                if (input.attr("type") === "password") {
+                    input.attr("type", "text");
+                    icon.removeClass("fa-eye").addClass("fa-eye-slash");
+                } else {
+                    input.attr("type", "password");
+                    icon.removeClass("fa-eye-slash").addClass("fa-eye");
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

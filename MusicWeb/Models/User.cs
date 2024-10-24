@@ -27,17 +27,12 @@ namespace MusicWeb.Models
         }
     
         public int UserID { get; set; }
-        public string Username { get; set; }
         public string Email { get; set; }
-        public string PasswordHash { get; set; }
-        public string Salt { get; set; }
+        public string Password { get; set; }
         public string DisplayName { get; set; }
         public Nullable<System.DateTime> DateOfBirth { get; set; }
         public string Gender { get; set; }
-        public string Country { get; set; }
-        public string Avatar { get; set; }
         public Nullable<System.DateTime> CreatedAt { get; set; }
-        public Nullable<System.DateTime> LastLogin { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Comment> Comments { get; set; }

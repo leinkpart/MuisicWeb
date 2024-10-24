@@ -152,7 +152,7 @@
             font-size: 13px;
         }
 
-        #left_scroll, #right_scroll {
+        #leftScroll, #rightScroll {
             background-color: rgba(255, 255, 255, 0.5);
             padding: 5px;
             border-radius: 50%;
@@ -180,7 +180,7 @@
             overflow: hidden;
             white-space: nowrap;
             display: flex;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease-in-out;
         }
 
         .artistItem {
@@ -222,7 +222,7 @@
             text-overflow: ellipsis;
         }
 
-        #left_scroll_artist, #right_scroll_artist {
+        #left_scrolls, #right_scrolls {
             background-color: rgba(255, 255, 255, 0.5);
             padding: 5px;
             border-radius: 50%;
@@ -251,19 +251,19 @@
             <div class="h4">
                 <h4>Popular Song</h4>
                 <div class="btn_s">
-                    <i id="left_scroll" class="bi bi-arrow-left-short"></i>
-                    <i id="right_scroll" class="bi bi-arrow-right-short"></i>
+                    <i id="leftScroll" class="bi bi-arrow-left-short"></i>
+                    <i id="rightScroll" class="bi bi-arrow-right-short"></i>
                 </div>
             </div>
 
-            <div class="pop_song" id="songContainer">
+            <div class="pop_song">
                 <div class="songWrapper">
                     @foreach (var song in ViewBag.PopularSongs)
                     {
                         <div class="songItem" data-index="@song.SongID">
                             <div class="img_play">
                                 <img src="~/Images/SongsIamge/@song.ImageURL" alt="Alan Walker">
-                                <i class="bi playListPlay bi-play-circle-fill"></i>
+                                <i class="bi playListPlay bi-play-circle-fill" title="Play"></i>
                                 <audio id="audio_@song.SongID" src="~/MusicMP3/@song.AudioFile"></audio>
                             </div>
                             <h5>
@@ -281,8 +281,8 @@
             <div class="h4">
                 <h4>Popular Artists</h4>
                 <div class="btn_s">
-                    <i id="left_scroll_artist" class="bi bi-arrow-left-short"></i>
-                    <i id="right_scroll_artist" class="bi bi-arrow-right-short"></i>
+                    <i id="left_scrolls" class="bi bi-arrow-left-short"></i>
+                    <i id="right_scrolls" class="bi bi-arrow-right-short"></i>
                 </div>
             </div>
             <div class="artistContainer">
@@ -300,11 +300,5 @@
         <!--end of project-->
     </main>
 
-    <script src="./assets/libs/jquery/dist/jquery.min.js"></script>
-    <script src="./assets/libs/simplebar/dist/simplebar.min.js"></script>
-    <script src="./assets/libs/iconify-icon/dist/iconify-icon.min.js"></script>
-    <script src="./assets/js/sidebarmenu.js"></script>
-    <script src="./assets/libs/apexcharts/dist/apexcharts.min.js"></script>
-    <script src="./assets/js/dashboard.js"></script>
 </body>
 </html>

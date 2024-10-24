@@ -8,7 +8,6 @@ using System.Data.Entity;
 using MusicWeb.Models;
 using System.Data;
 using System.Data.SqlClient;
-using System.Security.Cryptography.X509Certificates;
 
 namespace MusicWeb.Controllers
 {
@@ -41,7 +40,7 @@ namespace MusicWeb.Controllers
             return View();
         }
 
-        public ActionResult NavbarPartial()
+        public ActionResult UserPartial()
         {
             return PartialView();
         }

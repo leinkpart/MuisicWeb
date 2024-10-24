@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\Học Tập\Lập Trình Web\MusicWeb\MusicWeb\Models\DataMusicWeb.edmx'. 
+﻿// T4 code generation is enabled for model 'D:\Học Tập\Lập Trình Web\MusicWeb\MusicWeb\Models\MusicWeb.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
